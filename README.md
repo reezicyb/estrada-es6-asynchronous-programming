@@ -36,13 +36,13 @@ It demonstrates the use of **ES6 features** (classes, template literals, maps, a
 ---
 
 ## 🗂️ Project Structure
-📂 project-root
-┣ 📜 index.html # Main HTML file
-┣ 📜 styles.css # CSS (badges, glowing effects, layout)
-┣ 📜 script.js # JS logic (ES6 classes + async rendering)
-┣ 📂 data
-┃ ┗ 📜 students.json # JSON data source
-┣ 📜 screenshot.png # Output preview image
+📂 project-root <br>
+┣ 📜 index.html # Main HTML file <br>
+┣ 📜 styles.css # CSS (badges, glowing effects, layout) <br>
+┣ 📜 script.js # JS logic (ES6 classes + async rendering) <br>
+┣ 📂 data <br>
+┃ ┗ 📜 students.json # JSON data source <br>
+┣ 📜 screenshot.png # Output preview image <br>
 ┗ 📜 README.md # Documentation
 
 ---
