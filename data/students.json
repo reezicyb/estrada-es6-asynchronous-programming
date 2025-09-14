@@ -1,0 +1,78 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Daniel Padilla",
+      "age": 30,
+      "course": "Computer Science"
+    },
+    {
+      "id": 2,
+      "name": "Enrique Gil",
+      "age": 33,
+      "course": "Information Technology"
+    },
+    {
+      "id": 3,
+      "name": "Raiko Estrada",
+      "age": 18,
+      "course": "Software Engineering"
+    },
+    {
+      "id": 4,
+      "name": "Brent Manalo",
+      "age": 27,
+      "course": "Data Science"
+    },
+    {
+      "id": 5,
+      "name": "James Reid",
+      "age": 32,
+      "course": "Cybersecurity"
+    }
+  ],
+  "courses": [
+    {
+      "id": 101,
+      "title": "Computer Science",
+      "description": "Study of algorithms, programming, and computing systems."
+    },
+    {
+      "id": 102,
+      "title": "Information Technology",
+      "description": "Focus on managing and deploying computer systems and networks."
+    },
+    {
+      "id": 103,
+      "title": "Software Engineering",
+      "description": "Application of engineering principles to software development."
+    },
+    {
+      "id": 104,
+      "title": "Data Science",
+      "description": "Methods and tools to extract insights from data."
+    },
+    {
+      "id": 105,
+      "title": "Cybersecurity",
+      "description": "Protection of systems, detection and prevention of cyber threats."
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "name": "Lebron James",
+      "subject": "Modern JavaScript & Next js Prerequisites"
+    },
+    {
+      "id": 2,
+      "name": "Kobe Bryant",
+      "subject": "Data Science Fundamentals"
+    },
+    {
+      "id": 3,
+      "name": "Micheal Jordan",
+      "subject": "Cybersecurity and Networks"
+    }
+  ]
+}

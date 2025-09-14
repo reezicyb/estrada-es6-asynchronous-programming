@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0d1117; 
+    color: #e6e6e6; 
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e50914, #3b82f6); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #fff;
+    margin: 40px 0 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #e50914;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+#output {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center; 
+}
+
+.card {
+    width: 100%;
+    max-width: 700px; 
+    background: #161b22; 
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: #3b82f6;
+}
+
+.card p {
+    margin: 6px 0;
+    color: #d1d5db;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card li {
+    margin: 8px 0;
+    font-size: 1rem;
+}
+
+.student-highlight {
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(229, 9, 20, 0.9),
+               0 0 12px rgba(229, 9, 20, 0.7);
+}
+
+.student-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    display: inline-block;
+}
+
+.rank-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin-left: 6px;
+    display: inline-block;
+    animation: pulseRank 2s infinite ease-in-out;
+}
+
+.rank-ss {
+    background: linear-gradient(135deg, #f7e96d, #e6c94d); 
+    color: #3a3200;
+    box-shadow: 0 0 12px rgba(247, 233, 109, 0.8),
+    0 0 25px rgba(230, 201, 77, 0.6);
+}
+
+.rank-s {
+    background: linear-gradient(135deg, #ffe66d, #ffd633);
+    color: #3a3200;
+    box-shadow: 0 0 12px rgba(255, 214, 51, 0.8),
+    0 0 25px rgba(255, 214, 51, 0.6);
+}
+
+.rank-c {
+    background: linear-gradient(135deg, #9d4edd, #5a189a);
+    color: #f5e6ff;
+    box-shadow: 0 0 12px rgba(157, 78, 221, 0.8),
+                0 0 25px rgba(90, 24, 154, 0.6);
+}
+
+.rank-a {
+    background: linear-gradient(135deg, #ff9e42, #e66a00);
+    color: #fff5e6;
+    box-shadow: 0 0 12px rgba(255, 158, 66, 0.8),
+                0 0 25px rgba(230, 106, 0, 0.6);
+}
+
+.badge-21 {
+    background: #e50914;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.8), 0 0 20px rgba(229, 9, 20, 0.5);
+    animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+.instructor-badge {
+    background: linear-gradient(135deg, #f8e800, #d4af37); 
+    color: #fff8dc;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 10px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.9),
+                0 0 20px rgba(255, 215, 0, 0.7);
+    animation: pulseLegend 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseSync {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.rank-badge,
+.badge-21,
+.instructor-badge {
+    animation: pulseSync 1.5s infinite ease-in-out;
+}
+
+section p {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #c9d1d9;
+    background: #21262d;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0a0f1e;
+    color: #fff;
+    margin-top: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 0.9rem;
+}
