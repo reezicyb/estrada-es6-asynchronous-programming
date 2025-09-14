@@ -36,4 +36,25 @@ It demonstrates the use of **ES6 features** (classes, template literals, maps, a
 ---
 
 ## 🗂️ Project Structure
+📂 project-root
+┣ 📜 index.html # Main HTML file
+┣ 📜 styles.css # CSS (badges, glowing effects, layout)
+┣ 📜 script.js # JS logic (ES6 classes + async rendering)
+┣ 📂 data
+┃ ┗ 📜 students.json # JSON data source
+┣ 📜 screenshot.png # Output preview image
+┗ 📜 README.md # Documentation
 
+---
+
+## 🚀 How to Run
+
+1. Clone or download this repository.  
+2. Ensure `data/students.json` is inside a `data` folder.  
+3. Open `index.html` in your browser.  
+4. Open the browser console (`F12`) to see:
+   - Student `introduce()` messages
+   - Instructor `teach()` messages
+   - Promise vs. Async/Await logs  
+
+---
