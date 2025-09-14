@@ -1,22 +1,21 @@
 class Student {
-    constructor(id, name, age, courseId) {
+    constructor(id, name, age, course) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.courseId = courseId;
+        this.course = course;
     }
 
     introduce() {
-        return `Hi, my name is ${this.name}, I am ${this.age} years old, and I am enrolled in ${this.courseId}.`;
+        return `Hi, my name is ${this.name}, I am ${this.age} years old, and I am enrolled in ${this.course}.`;
     }
 }
 
 class Instructor {
-    constructor(id, name, subject, courseId) {
+    constructor(id, name, subject,) {
         this.id = id;
         this.name = name;
         this.subject = subject;
-        this.courseId = courseId;
     }
 
     teach() {
@@ -144,10 +143,10 @@ async function init() {
         .then((dataFromPromise) => {
             const studentObjs = dataFromPromise.students
             .slice(0, 3)
-            .map((s) => new Student(s.id, s.name, s.age, s.courseId));
+            .map((s) => new Student(s.id, s.name, s.age, s.course));
             const instructorObjs = dataFromPromise.instructors
             .slice(0, 2)
-            .map((i) => new Instructor(i.id, i.name, i.subject, i.courseId));
+            .map((i) => new Instructor(i.id, i.name, i.subject));
             console.log("Student objects (Promise):", studentObjs);
             console.log("Instructor objects (Promise):", instructorObjs);
         })
@@ -155,10 +154,10 @@ async function init() {
 
         const data = await fetchDataAsync();
         const studentsInstances = data.students.map(
-            (s) => new Student(s.id, s.name, s.age, s.courseId)
+            (s) => new Student(s.id, s.name, s.age, s.course)
         );
         const instructorsInstances = data.instructors.map(
-            (i) => new Instructor(i.id, i.name, i.subject, i.courseId)
+            (i) => new Instructor(i.id, i.name, i.subject, i.course)
         );
 
         console.log(
