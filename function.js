@@ -5,14 +5,14 @@ class Student {
         this.age = age;
         this.course = course;
     }
-
+    
     introduce() {
         return `Hi, my name is ${this.name}, I am ${this.age} years old, and I am enrolled in ${this.course}.`;
     }
 }
 
 class Instructor {
-    constructor(id, name, subject,) {
+    constructor(id, name, subject) {
         this.id = id;
         this.name = name;
         this.subject = subject;
@@ -34,7 +34,6 @@ function render(data) {
 
     const { students, courses, instructors } = data;
 
-    const courseMap = new Map(courses.map((c) => [c.id, c]));
     const stCard = document.createElement("div");
     stCard.className = "card";
     stCard.innerHTML = `<h3>Students</h3>`;
@@ -71,7 +70,6 @@ function render(data) {
         stList.appendChild(li);
     });
 
-
     stCard.appendChild(stList);
     outputEl.appendChild(stCard);
 
@@ -106,21 +104,43 @@ function render(data) {
     iCard.appendChild(iList);
     outputEl.appendChild(iCard);
 
+    const relCard = document.createElement("div");
+    relCard.className = "card";
+    relCard.innerHTML = `<h3>Course - Instructor Mapping</h3>`;
+    const relList = document.createElement("ul");
+
+    const courseInstructorMap = {
+    "Computer Science": "LeBron James",
+    "Information Technology": "LeBron James",
+    "Software Engineering": "LeBron James",
+    "Data Science": "Kobe Bryant",
+    "Cybersecurity": "Michael Jordan"
+};
+
+    courses.forEach((c) => {
+        const li = document.createElement("li");
+        const instructor = courseInstructorMap[c.title] || "N/A";
+        li.textContent = `${c.title} → Taught by ${instructor}`;
+        relList.appendChild(li);
+    });
+
+    relCard.appendChild(relList);
+    outputEl.appendChild(relCard);
 }
 
 function fetchDataWithPromises() {
-  return fetch("data/students.json")
+    return fetch("data/students.json")
     .then((resp) => {
-      if (!resp.ok) throw new Error("Network response was not ok");
-      return resp.json();
+        if (!resp.ok) throw new Error("Network response was not ok");
+        return resp.json();
     })
     .then((data) => {
-      console.log("Promise version data:", data);
-      return data;
+        console.log("Promise version data:", data);
+        return data;
     })
     .catch((err) => {
-      console.error("Promise fetch error:", err);
-      throw err;
+        console.error("Promise fetch error:", err);
+        throw err;
     });
 }
 
@@ -157,7 +177,7 @@ async function init() {
             (s) => new Student(s.id, s.name, s.age, s.course)
         );
         const instructorsInstances = data.instructors.map(
-            (i) => new Instructor(i.id, i.name, i.subject, i.course)
+            (i) => new Instructor(i.id, i.name, i.subject)
         );
 
         console.log(
