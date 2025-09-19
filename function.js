@@ -110,12 +110,12 @@ function render(data) {
     const relList = document.createElement("ul");
 
     const courseInstructorMap = {
-    "Computer Science": "LeBron James",
-    "Information Technology": "LeBron James",
-    "Software Engineering": "LeBron James",
-    "Data Science": "Kobe Bryant",
-    "Cybersecurity": "Michael Jordan"
-};
+        "Computer Science": "LeBron James",
+        "Information Technology": "LeBron James",
+        "Software Engineering": "LeBron James",
+        "Data Science": "Kobe Bryant",
+        "Cybersecurity": "Michael Jordan"
+    };
 
     courses.forEach((c) => {
         const li = document.createElement("li");
@@ -128,70 +128,71 @@ function render(data) {
     outputEl.appendChild(relCard);
 }
 
-function fetchDataWithPromises() {
+function fetchDataPromises() {
     return fetch("data/students.json")
-    .then((resp) => {
-        if (!resp.ok) throw new Error("Network response was not ok");
-        return resp.json();
-    })
-    .then((data) => {
-        console.log("Promise version data:", data);
-        return data;
-    })
-    .catch((err) => {
-        console.error("Promise fetch error:", err);
-        throw err;
-    });
+        .then((resp) => {
+            if (!resp.ok) throw new Error("Network response was not ok");
+            return resp.json();
+        })
+        .catch((err) => {
+            console.error("Promise fetch error:", err);
+            throw err;
+        });
 }
 
 async function fetchDataAsync() {
     try {
         const resp = await fetch("data/students.json");
         if (!resp.ok) throw new Error("Network response was not ok");
-        const data = await resp.json();
-        console.log("Async/Await version data:", data);
-        return data;
+        return await resp.json();
     } catch (err) {
         console.error("Async fetch error:", err);
         throw err;
-    }
+    }   
 }
 
 async function init() {
     try {
-        fetchDataWithPromises()
-        .then((dataFromPromise) => {
-            const studentObjs = dataFromPromise.students
+        const [promiseData, asyncData] = await Promise.all([
+            fetchDataPromises(),
+            fetchDataAsync()
+        ]);
+
+        const studentObjs = promiseData.students
             .slice(0, 3)
             .map((s) => new Student(s.id, s.name, s.age, s.course));
-            const instructorObjs = dataFromPromise.instructors
+        const instructorObjs = promiseData.instructors
             .slice(0, 2)
             .map((i) => new Instructor(i.id, i.name, i.subject));
-            console.log("Student objects (Promise):", studentObjs);
-            console.log("Instructor objects (Promise):", instructorObjs);
-        })
-        .catch(() => {});
 
-        const data = await fetchDataAsync();
-        const studentsInstances = data.students.map(
+        console.log("Student objects (Promise):", studentObjs);
+        console.log("Instructor objects (Promise):", instructorObjs);
+
+        console.log("Promise version data:", promiseData);
+
+        console.log("Async/Await version data:", asyncData);
+
+        const studentsInstances = asyncData.students.map(
             (s) => new Student(s.id, s.name, s.age, s.course)
         );
-        const instructorsInstances = data.instructors.map(
+        const instructorsInstances = asyncData.instructors.map(
             (i) => new Instructor(i.id, i.name, i.subject)
         );
 
         console.log(
-            "Introductions (async):",
+            "Introductions (Async):",
             studentsInstances.map((s) => s.introduce())
         );
         console.log(
-            "Teach messages (async):",
+            "Teach messages (Async):",
             instructorsInstances.map((i) => i.teach())
         );
 
-        render(data);
+        render(asyncData);
+
     } catch (err) {
-        outputEl.innerHTML = `<p style="color:red">Failed to load data. See console for details.</p>`;
+        outputEl.innerHTML =
+            `<p style="color:red">Failed to load data. See console for details.</p>`;
     }
 }
 
