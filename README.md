@@ -28,7 +28,7 @@ It demonstrates the use of **ES6 features** (classes, template literals, maps, a
 
 ---
 
-## 🖼️ Preview Screenshot  
+## 🖼️ Previews Screenshot  
 
 ![Preview 1 Screenshot](preview1.png)  
 ![Preview 2 Screenshot](preview2.png)  
