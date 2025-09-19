@@ -30,8 +30,8 @@ It demonstrates the use of **ES6 features** (classes, template literals, maps, a
 
 ## 🖼️ Previews Screenshot  
 
-![Preview 1 Screenshot](preview1.png)  
-![Preview 2 Screenshot](preview2.png)  
+![Preview 1 Screenshot](screenshots/preview1.png)  
+![Preview 2 Screenshot](screenshots/preview2.png)  
 
 
 ---
