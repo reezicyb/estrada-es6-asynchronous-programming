@@ -165,8 +165,8 @@ async function init() {
             .slice(0, 2)
             .map((i) => new Instructor(i.id, i.name, i.subject));
 
-        console.log("Student objects (Promise):", studentObjs);
-        console.log("Instructor objects (Promise):", instructorObjs);
+        console.log("Student objects:", studentObjs);
+        console.log("Instructor objects:", instructorObjs);
 
         console.log("Promise version data:", promiseData);
 
